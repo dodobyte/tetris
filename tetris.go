@@ -564,7 +564,7 @@ func main() {
 
 	getScores()
 
-	nextPiece = pieces[sdl.GetTicks()%7]
+	nextPiece = pieces[time.Now().UnixNano()%7]
 	createPiece()
 
 	for !quit {
