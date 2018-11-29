@@ -155,6 +155,12 @@ func createPiece() {
 
 func updateCloud() {
 	user := os.Getenv("USERNAME")
+	if user == "" {
+		user = os.Getenv("USER")
+		if user == "" {
+			return
+		}
+	}
 	urlfmt := "http://dogankurt.com/tetris?user=%s&score=%d"
 	url := fmt.Sprintf(urlfmt, user, score)
 	resp, err := http.Get(url)
